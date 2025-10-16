@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коллекция природных артефактов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4a4b4a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: #1D2F30B2;
+        }
+        
+       
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background-color: transparent;
+            color: #BAE249;
+            font-weight: 500;
+            border: 1px solid #BAE249;
+        }
+        
+        .btn-primary:hover {
+            background-color: #BAE249;
+            color: #0f172a;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #BAE249;
+            color: #BAE249;
+        }
+        
+        .btn-outline:hover {
+            background-color: #BAE249;
+            color: #0f172a;
+        }
+        
+       
+        h1, h2, h3 {
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+        }
+        
+        h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        h3 {
+            font-size: 1.125rem;
+            font-weight: bold;
+        }
+        
+       
+        section {
+            padding: 48px 0;
+        }
+        
+        .bg-dark {
+            background-color: #1D2F30;
+            color: #ffffff;
+        }
+        
+        .bg-gray {
+            background-color: #1D2F30;
+            color: #ffffff;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        
+        header {
+            background-color: #1D2F30;
+            color: #BAE249;
+            padding: 16px 0;
+            border-bottom: 2px solid #5f5f5f;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #BAE249;
+        }
+
+        .nav-left {
+            margin-left: -40px;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .icon-btn {
+            background: none;
+            border: none;
+            color: #BAE249;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+       
+        .hero {
+            padding: 48px 0;
+            text-align: left;
+            background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero .container {
+            margin-left: 40px;
+            background-color: transparent;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #5f5f5fb2;
+        }
+        
+        .hero h1, .hero p, .hero button {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            width: 70%;
+            color: #ffffff;
+        }
+        
+        .explore-btn {
+            background-color: transparent;
+            color: #BAE249;
+            border: none;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .explore-btn:hover {
+            color: #d4f07a;
+        }
+        
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+        
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .card {
+            background-color: #1D2F30;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            border: 1px solid #1D2F30;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #BAE249;
+        }
+        
+        .image-box {
+            height: 192px;
+            width: 100%;
+            margin-bottom: 16px;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color:#1D2F30;
+            border: 1px solid #1D2F30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #ffffff;
+            margin-bottom: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        
+        .nav-arrows {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+            gap: 16px;
+        }
+        
+        .arrow-btn {
+            background-color: transparent;
+            border: 1px solid #BAE249;
+            color: #BAE249;
+            padding: 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .arrow-btn:hover {
+            background-color: #BAE249;
+            color: #0f172a;
+        }
+        
+        
+        footer {
+            background-color: #253827;
+            color: #ffffff;
+            padding: 16px 0;
+            text-align: center;
+            border-top: 2px solid #253827;
+        }
+        
+        
+        .arrow-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 8px;
+        }
+        
+        
+        .new-section {
+            background-color: #1D2F30;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+        }
+        
+        .slider-btn {
+            padding: 12px;
+            background-color: #1D2F30;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #BAE249;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: #1D2F30;
+        }
+        
+        .slider-counter {
+            font-size: 14px;
+            color: #ffffff;
+        }
+        
+        .content-section {
+            padding: 32px 16px;
+        }
+        
+        @media (min-width: 768px) {
+            .content-section {
+                padding: 32px 64px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .content-section {
+                padding: 32px 96px;
+            }
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+        
+        .image-gallery {
+            position: relative;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            margin-top: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: italic;
+            align-items: stretch;
+        }
+        
+        .gallery-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            padding: 0;
+            flex: 1;
+        }
+        
+        .gallery-item {
+            background-color: transparent;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            border: none;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px 0 0 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .info-box {
+            background-color: #BAE249;
+            padding: 24px;
+            color: #000000;
+            border-radius: 0 8px 8px 0;
+            flex: 0 0 300px;
+            border: none;
+            margin-left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .info-title {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #000000;
+            font-size: 1.25rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .info-text {
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+            color: #000000;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .read-more {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .read-more:hover {
+            color: #1a2a1a;
+        }
+        
+        .help-section {
+            position: relative;
+            padding: 32px 16px;
+            background-color: #5f5f5fb2;
+            margin-top: 40px;
+            border-radius: 8px;
+            margin-bottom: 0;
+        }
+        
+        .help-section .container {
+            margin-left: 40px;
+            background-color: transparent;
+        }
+        
+        @media (min-width: 768px) {
+            .help-section {
+                padding: 32px 64px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .help-section {
+                padding: 32px 96px;
+            }
+        }
+        
+        .help-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .help-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 400px;
+        }
+        
+        .form-field {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-field::placeholder {
+            color: #BAE249;
+        }
+
+        .form-field:focus {
+            outline: none;
+            border-color: #BAE249;
+        }
+        
+        .submit-btn {
+            background-color: transparent;
+            color: #BAE249;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            width: fit-content;
+            border-radius: 0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .submit-btn:hover {
+            color: #d4f07a;
+        }
+        
+        .social-footer {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 32px 0;
+            background-color: #0B1919;
+            margin-top: 0;
+            border-top: 2px solid #0B1919;
+        }
+        
+        .social-btn {
+            padding: 12px;
+            background-color: #0B1919;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            border: 1px solid #0B1919;
+        }
+
+        .social-btn:hover {
+            background-color: #6b7280;
+        }
+        
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            color: #BAE249;
+        }
+
+        
+        .text-sm {
+            font-size: 14px;
+        }
+
+        .mb-4 {
+            margin-bottom: 16px;
+        }
+
+        .mb-2 {
+            margin-bottom: 8px;
+        }
+
+        .detail-btn {
+            color: #BAE249;
+            background: none;
+            border: 1px solid #BAE249;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <nav class="container">
+            <div class="nav-links nav-left">
+                <span style="font-size: 1.25rem; font-weight: bold; color: #BAE249;">F & B</span>
+                <a href="#">Каталог</a>
+                <a href="#">Галерея</a>
+                <a href="#">О нас</a>
+                <a href="#">Контакты</a>
+            </div>
+            <div class="nav-right">
+                <button class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16,17 21,12 16,7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Крупнейшая коллекция природных артефактов</h1>
+            <p>Платформа для всех, кто любит и изучает природные явления, предоставляет возможность поделиться своими открытиями и вдохновением с сообществом.</p>
+            <button class="explore-btn">
+                Изучить 
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <section class="bg-gray">
+        <div class="container">
+            <h2>Коллекция артефактов</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="image-box">
+                        <img src="image_2025-10-02_20-15-35.png" alt="Растение">
+                    </div>
+                    <h3>plant</h3>
+                    <p class="text-sm mb-4">Краткое описание. Подробное описание будет доступно при нажатии на кнопку 'Подробнее'.</p>
+                    <button class="btn detail-btn">Подробнее</button>
+                </div>
+                <div class="card">
+                    <div class="image-box">
+                        <img src="image_2025-10-02_20-15-53.png" alt="Цветок">
+                    </div>
+                    <h3>flower</h3>
+                    <p class="text-sm mb-4">Краткое описание. Подробное описание будет доступно при нажатии на кнопку 'Подробнее'.</p>
+                    <button class="btn detail-btn">Подробнее</button>
+                </div>
+                <div class="card">
+                    <div class="image-box">
+                        <img src="image_2025-10-02_20-16-35.png" alt="Лист">
+                    </div>
+                    <h3>leaf</h3>
+                    <p class="text-sm mb-4">Краткое описание. Подробное описание будет доступно при нажатии на кнопку 'Подробнее'.</p>
+                    <button class="btn detail-btn">Подробнее</button>
+                </div>
+                <div class="card">
+                    <div class="image-box">
+                        <img src="image_2025-10-02_20-16-45.png" alt="Дерево">
+                    </div>
+                    <h3>wood</h3>
+                    <p class="text-sm mb-4">Краткое описание. Подробное описание будет доступно при нажатии на кнопку 'Подробнее'.</p>
+                    <button class="btn detail-btn">Подробнее</button>
+                </div>
+            </div>
+            <div class="nav-arrows">
+                <button class="arrow-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <button class="arrow-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark">
+        <div class="container">
+           
+           
+    </section>
+    <div class="new-section">
+        <div class="slider-controls">
+            
+        </div>
+
+        <section class="content-section">
+            <h2 class="section-title">Новые артефакты</h2>
+             
+            <div class="image-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="image_2025-10-02_20-38-47.png" alt="Природный артефакт">
+                    </div>
+                </div>
+                
+            <div class="info-box">
+             <h3 class="info-title">Kurische Nehrung 24</h3>
+             <p class="info-text">Вот вам яркий пример современных тенденций- начало повседневной работы по формированию позиции выявляет срочную потребность методов управления процессами.</p>
+             <p class="info-text">Есть над чем задуматься: представители современных социальных резервов своевременно верифицированы.</p>
+             <a href="#" class="read-more">Читать далее
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+             </a>
+            </div>
+            </div>
+                </section>
+
+        <section class="help-section">
+            <div class="help-content">
+                <h2 class="section-title">Помочь проекту</h2>
+                <p class="info-text">Равным образом, экономическая проверка сегодняшнего дня не даёт нам иного выбора, кроме определения прогресса профессионального сообщества.</p>
+                <form class="help-form">
+                    <input type="text" placeholder="Имя" class="form-field">
+                    <input type="email" placeholder="Email" class="form-field">
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="social-footer">
+            <a href="#" class="social-btn">
+                <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22.54 6.42c-.82-2.33-2.68-4.2-5.03-5.02C14.85.64 7.15.64 4.5 1.4c-2.35.82-4.2 2.68-5.02 5.02C.64 9.15.64 12 1.4 14.85c.82 2.33 2.68-4.2-5.02-5.02-2.7.76-9.4.76-12.3-0-2.35-.82-4.2-2.68-5.03-5.02-1.17-3.3-1.17-6.16-0-9.46zM9.92-17.93V6.07l6.67-5.93-6.67-5.93z" />
+                </svg>
+            </a>
+            <a href="#" class="social-btn">
+                <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18-2h-3a5-5-0-0-0-5-5v3H7v4h3v8h4v-8h3l1-4h-4V7a1-1-0-0-1-1-1h3z" />
+                </svg>
+            </a>
+            <a href="#" class="social-btn">
+                <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16-11.37A4-4-0-1-1-12.63-8-4-4-0-0-1-16-11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
+                </svg>
+            </a>
+            <a href="#" class="social-btn">
+                <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23-3a10.9-10.9-0-0-1-3.14-1.53-4.48-4.48-0-0-0-7.86-3v1A10.66-10.66-0-0-1-3-4s-4-9-5-13a11.64-11.64-0-0-1-7-2c9-5-20-0-20-11.5a4.5-4.5-0-0-0-.08-.83A7.72-7.72-0-0-0-23-3z" />
+                </svg>
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        
+        document.querySelector('.help-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            console.log('Форма отправлена:', { name, email });
+            alert('Спасибо! Ваши данные отправлены.');
+        });
+    </script>
+</body>
+</html>
