@@ -6,7 +6,6 @@
     <title>Коллекция природных артефактов</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&display=swap" rel="stylesheet">
     <style>
-        
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +26,6 @@
             background-color: #1D2F30B2;
         }
         
-       
         .btn {
             display: inline-block;
             padding: 8px 16px;
@@ -62,7 +60,6 @@
             color: #0f172a;
         }
         
-       
         h1, h2, h3 {
             margin-bottom: 16px;
         }
@@ -83,7 +80,6 @@
             font-weight: bold;
         }
         
-       
         section {
             padding: 48px 0;
         }
@@ -114,6 +110,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         .nav-links {
@@ -133,7 +130,10 @@
         }
 
         .nav-left {
-            margin-left: -40px;
+            margin-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .nav-right {
@@ -153,7 +153,7 @@
             justify-content: center;
         }
         
-       
+        
         .hero {
             padding: 48px 0;
             text-align: left;
@@ -164,7 +164,7 @@
         }
         
         .hero .container {
-            margin-left: 40px;
+            margin-left: 0;
             background-color: transparent;
         }
         
@@ -192,7 +192,7 @@
         .hero p {
             font-size: 18px;
             margin-bottom: 30px;
-            width: 70%;
+            width: 100%;
             color: #ffffff;
         }
         
@@ -205,12 +205,13 @@
             align-items: center;
             cursor: pointer;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-size: 16px;
         }
         
         .explore-btn:hover {
             color: #d4f07a;
+            opacity: 0.7;
         }
         
         
@@ -218,6 +219,12 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 32px;
+        }
+        
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (min-width: 768px) {
@@ -271,7 +278,6 @@
             line-height: 1.5;
         }
         
-        
         .nav-arrows {
             display: flex;
             justify-content: center;
@@ -297,7 +303,6 @@
             color: #0f172a;
         }
         
-        
         footer {
             background-color: #253827;
             color: #ffffff;
@@ -306,13 +311,11 @@
             border-top: 2px solid #253827;
         }
         
-        
         .arrow-icon {
             width: 24px;
             height: 24px;
             margin-left: 8px;
         }
-        
         
         .new-section {
             background-color: #1D2F30;
@@ -375,19 +378,26 @@
             color: #ffffff;
         }
         
+        
         .image-gallery {
             position: relative;
             padding: 0;
             background-color: transparent;
             border: none;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             gap: 0;
             margin-top: 20px;
             font-family: 'Cormorant Garamond', serif;
             font-weight: 700;
             font-style: italic;
             align-items: stretch;
+        }
+        
+        @media (min-width: 768px) {
+            .image-gallery {
+                flex-direction: row;
+            }
         }
         
         .gallery-grid {
@@ -416,21 +426,33 @@
             height: auto;
             max-height: 400px;
             object-fit: contain;
-            border-radius: 8px 0 0 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border-radius: 8px 8px 0 0;
+        }
+        
+        @media (min-width: 768px) {
+            .gallery-item img {
+                border-radius: 8px 0 0 8px;
+            }
         }
         
         .info-box {
             background-color: #BAE249;
             padding: 24px;
             color: #000000;
-            border-radius: 0 8px 8px 0;
-            flex: 0 0 300px;
+            border-radius: 0 0 8px 8px;
+            flex: 0 0 auto;
             border: none;
             margin-left: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
+        }
+        
+        @media (min-width: 768px) {
+            .info-box {
+                border-radius: 0 8px 8px 0;
+                flex: 0 0 300px;
+            }
         }
         
         .info-title {
@@ -460,7 +482,7 @@
             color: #000000;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             background: none;
             border: none;
             padding: 0;
@@ -471,6 +493,9 @@
 
         .read-more:hover {
             color: #1a2a1a;
+            border: 1px solid #000000;
+            padding: 4px 8px;
+            border-radius: 4px;
         }
         
         .help-section {
@@ -483,7 +508,7 @@
         }
         
         .help-section .container {
-            margin-left: 40px;
+            margin-left: 0;
             background-color: transparent;
         }
         
@@ -519,6 +544,7 @@
             color: #ffffff;
             border-radius: 4px;
             font-size: 14px;
+            transition: all 0.3s ease;
         }
         
         .form-field::placeholder {
@@ -528,6 +554,12 @@
         .form-field:focus {
             outline: none;
             border-color: #BAE249;
+        }
+
+        /* Добавлено: стили при наведении на поля ввода */
+        .form-field:hover {
+            background-color: #cccccc; /* Серый фон при наведении */
+            color: #000000; /* Черный текст при наведении */
         }
         
         .submit-btn {
@@ -539,12 +571,13 @@
             width: fit-content;
             border-radius: 0;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-size: 16px;
         }
         
         .submit-btn:hover {
             color: #d4f07a;
+            border: 1px solid #BAE249; /* Добавлено: рамка цвета кнопки при наведении */
         }
         
         .social-footer {
@@ -578,7 +611,6 @@
             color: #BAE249;
         }
 
-        
         .text-sm {
             font-size: 14px;
         }
@@ -595,13 +627,66 @@
             color: #BAE249;
             background: none;
             border: 1px solid #BAE249;
+            transition: all 0.3s ease;
+        }
+
+        .detail-btn:hover {
+            background-color: #BAE249;
+            color: #000000;
+        }
+        
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #BAE249;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 767px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #1D2F30;
+                padding: 20px;
+                z-index: 1000;
+                border-top: 1px solid #5f5f5f;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-left {
+                width: 100%;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    
     <header>
         <nav class="container">
+            <button class="mobile-menu-toggle">☰</button>
             <div class="nav-links nav-left">
                 <span style="font-size: 1.25rem; font-weight: bold; color: #BAE249;">F & B</span>
                 <a href="#">Каталог</a>
@@ -697,12 +782,11 @@
 
     <section class="bg-dark">
         <div class="container">
-           
-           
+        </div>
     </section>
+    
     <div class="new-section">
         <div class="slider-controls">
-            
         </div>
 
         <section class="content-section">
@@ -715,18 +799,18 @@
                     </div>
                 </div>
                 
-            <div class="info-box">
-             <h3 class="info-title">Kurische Nehrung 24</h3>
-             <p class="info-text">Вот вам яркий пример современных тенденций- начало повседневной работы по формированию позиции выявляет срочную потребность методов управления процессами.</p>
-             <p class="info-text">Есть над чем задуматься: представители современных социальных резервов своевременно верифицированы.</p>
-             <a href="#" class="read-more">Читать далее
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-             </a>
+                <div class="info-box">
+                    <h3 class="info-title">Kurische Nehrung 24</h3>
+                    <p class="info-text">Вот вам яркий пример современных тенденций- начало повседневной работы по формированию позиции выявляет срочную потребность методов управления процессами.</p>
+                    <p class="info-text">Есть над чем задуматься: представители современных социальных резервов своевременно верифицированы.</p>
+                    <a href="#" class="read-more">Читать далее
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
             </div>
-            </div>
-                </section>
+        </section>
 
         <section class="help-section">
             <div class="help-content">
@@ -774,6 +858,11 @@
             const email = this.querySelector('input[type="email"]').value;
             console.log('Форма отправлена:', { name, email });
             alert('Спасибо! Ваши данные отправлены.');
+        });
+        
+        
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
     </script>
 </body>
